@@ -4,7 +4,8 @@
   "description": "Personal journaling app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server/server.js",
+    "react-dev": "webpack --config webpack.config.js --watch"
   },
   "author": "Vu Huynh",
   "license": "MIT",
@@ -21,12 +22,16 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
+    "mongoose": "^5.6.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
     "request": "^2.88.0"
   }
 }
