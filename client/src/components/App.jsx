@@ -20,13 +20,13 @@ class App extends React.Component {
             <Link to="/" className="navbar-brand"><h1>My Blog</h1></Link>
             <div className="collapse navbar-collapse">
               <ul className="nav navbar-nav navbar-right">
-                <li><Link to="/" className="nav-link">Posts</Link></li>
+                <li><Link to="/posts" className="nav-link">Posts</Link></li>
                 <li><Link to="/add" className="nav-link">Compose</Link></li>
               </ul>
             </div>
           </nav>
           <br/>
-              <Route exact path="/" component={PostList} />
+              <Route exact path="/posts" component={PostList} />
               <Route path="/edit/:id" component={EditPost}/>
               <Route path="/add" component={ComposePost}/>
       </div>
