@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../styling/app.css';
-
 class PostList extends React.Component {
 
   render() {

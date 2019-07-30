@@ -42,8 +42,8 @@ postRoutes.route('/update/:id').post(function(req, res) {
       if (!post) {
           res.status(404).send("data is not found");
       } else {
-          post.post_title = req.body.post_title;
-          post.post_content = req.body.post_content;
+          post.title = req.body.title;
+          post.content = req.body.content;
 
           post.save().then(post => {
               res.json('Post updated!');

@@ -21,14 +21,14 @@ class App extends React.Component {
             <div className="collapse navbar-collapse">
               <ul className="nav navbar-nav navbar-right">
                 <li><Link to="/" className="nav-link">Posts</Link></li>
-                <li><Link to="/create" className="nav-link">Compose</Link></li>
+                <li><Link to="/add" className="nav-link">Compose</Link></li>
               </ul>
             </div>
           </nav>
           <br/>
               <Route exact path="/" component={PostList} />
               <Route path="/edit/:id" component={EditPost}/>
-              <Route path="/create" component={ComposePost}/>
+              <Route path="/add" component={ComposePost}/>
       </div>
       </Router>
     );

@@ -1,6 +1,5 @@
 import React from 'react';
-
-import '../styling/app.css';
+import axios from 'axios';
 
 class ComposePost extends React.Component {
   constructor(props) {
@@ -26,6 +25,15 @@ class ComposePost extends React.Component {
   onSubmit = (e) => {
     e.preventDefault()
     console.log("Form Submitted");
+
+    const newPost = {
+      title: this.state.title,
+      content: this.state.content
+    }
+
+    axios.post('http://localhost:3000/posts/add', newPost)
+      .then(res => console.log(res.data));
+
     this.setState({
       title: '',
       content: ''
