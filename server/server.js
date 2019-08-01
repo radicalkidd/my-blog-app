@@ -21,11 +21,11 @@ connection.once('open', function() {
 });
 
 postRoutes.route('/').get(function(req, res) {
-  Post.find(function(err, journal) {
+  Post.find(function(err, blog) {
     if(err) {
       console.log(err);
     } else {
-      res.json(journal);
+      res.json(blog);
     }
   });
 });

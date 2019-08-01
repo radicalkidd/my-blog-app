@@ -16,20 +16,40 @@ const Post = props => (
 )
 
 class PostList extends React.Component {
-
+  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {posts: []};
   }
 
   componentDidMount() {
+    this._isMounted = true;
     axios.get('http://localhost:3000/posts/')
       .then(response => {
-        this.setState({posts: response.data});
+        if (this._isMounted) {
+          this.setState({posts: response.data});
+        }
       })
       .catch(function (error) {
         console.log(error);
+      });
+  };
+
+  componentDidUpdate() {
+    this._isMounted = true;
+    axios.get('http://localhost:3000/posts/')
+      .then(response => {
+        if (this._isMounted) {
+          this.setState({posts: response.data});
+        }
       })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   postList() {
