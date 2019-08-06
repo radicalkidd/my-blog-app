@@ -80,4 +80,5 @@ class EditPost extends React.Component {
     );
   }
 }
+
 export default EditPost;

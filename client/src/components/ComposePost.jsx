@@ -41,7 +41,6 @@ class ComposePost extends React.Component {
   }
 
   render() {
-
     return (
       <div style={{marginTop: 10}}>
       <h3>Create New Todo</h3>
@@ -72,4 +71,5 @@ class ComposePost extends React.Component {
     );
   }
 }
+
 export default ComposePost;

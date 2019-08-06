@@ -1,0 +1,24 @@
+How to run this Blog web app.
+
+This is a blog like web application that is capable of saving your posts.
+Getting Started with MAC - These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+Prerequisites
+
+a. In terminal > project folder directory "npm install" to install all the dependencies 
+b. If you don't have mongoDB installed already on your local machine. To use the mongoDB shell you need to install it. Mongo Shell with HomeBrew installation guide: https://treehouse.github.io/installation-guides/mac/mongo-mac.html Install and Run MongoDB with Homebrew
+
+
+To get started with the app, open up your terminal and change into the blog folder directory. Type "npm run react-dev" to compile the JSX code through weback I've set up already.
+Visit localhost:3000 on your browser to visit local application
+
+This app uses MongoDB as it's database. As you're creating and deleting items on the web application itself. MongoDB is doing the CRUD operation for you. a. To see this you can simply run your mongo shell b. Use mongo shell commands to see your database and data entries as you add and update the todolist on the app. https://docs.mongodb.com/manual/crud/
+
+This App is Built With React as the front-end framework, 
+                       Bootstrap - Library used for layout 
+                       CSS - Page styling, 
+                       Node.js - Server-side / Params: for routing, 
+                       Axios for http requests, 
+                       MongoDB - database Mongoose - Along with MongoDB
+
+License This project is licensed under the MIT License - see the LICENSE.md file for details
