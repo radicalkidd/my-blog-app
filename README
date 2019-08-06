@@ -10,6 +10,7 @@ b. If you don't have mongoDB installed already on your local machine. To use the
 
 
 To get started with the app, open up your terminal and change into the blog folder directory. Type "npm run react-dev" to compile the JSX code through weback I've set up already.
+Then open a new terminal instance with ctrl+t and type in "npm start".
 Visit localhost:3000 on your browser to visit local application
 
 This app uses MongoDB as it's database. As you're creating and deleting items on the web application itself. MongoDB is doing the CRUD operation for you. a. To see this you can simply run your mongo shell b. Use mongo shell commands to see your database and data entries as you add and update the todolist on the app. https://docs.mongodb.com/manual/crud/
