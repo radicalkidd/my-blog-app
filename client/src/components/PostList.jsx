@@ -11,7 +11,9 @@ const Post = props => (
     <h2>{props.post.title}</h2>
     <h5><span className="glyphicon glyphicon-time"><h6><Timestamp /></h6></span>by Vu Huynh</h5>
     <p>{props.post.content}</p>
-    <p><Link to={"/edit/" + props.post._id}>Edit</Link></p>
+    <p>
+      <Link to={"/edit/" + props.post._id}>Edit</Link>
+    </p>
   </div>
 )
 
@@ -52,9 +54,19 @@ class PostList extends React.Component {
     this._isMounted = false;
   }
 
-  postList() {
-    return this.state.posts.map(function(currentPost, i) {
-      return <Post post={currentPost} key={i} />
+  onDelete = (e) => {
+    const postId = e.target.getAttribute('myId')
+    axios.get('http://localhost:3000/posts/delete/'+postId)
+      .then(console.log('Deleted the post!!!'))
+      .catch(err => console.log(err))
+  }
+
+  postList = () => {
+    return this.state.posts.map((currentPost, i) => {
+      return <div key={`key-${i}`}>
+              <Post post={currentPost} />
+              <button myid={currentPost._id} onClick={this.onDelete} className="btn btn-danger">Delete</button>
+            </div>
     });
   }
 
@@ -65,6 +77,7 @@ class PostList extends React.Component {
       </div>
     );
   }
+
 }
 
 export default PostList;

@@ -14,11 +14,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname +'/../client/dist/'));
 
 mongoose.connect("mongodb://localhost:27017/blogDB", { useNewUrlParser: true });
+
 const connection = mongoose.connection;
 
 connection.once('open', function() {
   console.log("MongoDB connected successfully");
 });
+
 
 postRoutes.route('/').get(function(req, res) {
   Post.find(function(err, blog) {
@@ -33,38 +35,50 @@ postRoutes.route('/').get(function(req, res) {
 postRoutes.route('/:id').get(function(req, res) {
   let id = req.params.id;
   Post.findById(id, function(err, post) {
-      res.json(post);
+    res.json(post);
   });
 });
 
 postRoutes.route('/update/:id').post(function(req, res) {
   Post.findById(req.params.id, function(err, post) {
-      if (!post) {
-          res.status(404).send("data is not found");
+    if (!post) {
+      res.status(404).send("data is not found");
       } else {
           post.title = req.body.title;
           post.content = req.body.content;
 
           post.save().then(post => {
-              res.json('Post updated!');
+            res.json('Post updated!');
           })
           .catch(err => {
-              res.status(400).send("Update not possible");
+            res.status(400).send("Update not possible");
           });
-        }
+      }
   });
 });
 
 postRoutes.route('/add').post(function(req, res) {
   let post = new Post(req.body);
   post.save()
-      .then(post => {
-          res.status(200).json({'post': 'post added successfully'});
-      })
-      .catch(err => {
-          res.status(400).send('adding new post failed');
-      });
+  .then(post => {
+    res.status(200).json({'post': 'post added successfully'});
+  })
+  .catch(err => {
+    res.status(400).send('adding new post failed');
+  });
 });
+
+postRoutes.route('/delete/:id').get(function(req, res) {
+  let id = req.params.id;
+  console.log(id);
+  Post.findOneAndDelete({_id: id}, function(err, post) {
+    if(err) {
+      res.send(err);
+    } else {
+      res.status(200).send("Post Successfully Deleted")
+    }
+  });
+})
 
 app.use('/posts', postRoutes);
 

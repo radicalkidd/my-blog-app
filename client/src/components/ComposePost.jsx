@@ -38,6 +38,8 @@ class ComposePost extends React.Component {
       title: '',
       content: ''
     });
+
+    this.props.history.push('/posts')
   }
 
   render() {
